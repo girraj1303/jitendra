@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- slider css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+    <!-- script link -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script> -->
+
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <!-- boostarp  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media-query.css">
+
+    <!-- icon css -->
+    <link rel="stylesheet" href="css/icon.css">
+
+    <title>vaishno.in</title>
+</head>
+
+<body id="body">
+    <!-- <header id="header" class="position-absolute header_main py-3">
+        <div class="w-100 header_box float-start position-relative">
+            <div class="container">
+                <div class="header-content d-flex align-items-center justify-content-between gap-4">
+                    <div class="logo">
+                        <a href="#"><img
+                                src="data:image/png;base64,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"
+                                alt="logo"></a>
+                    </div>
+                    <div class="menu flex-1">
+                        <ul id="menu" class="d-flex justify-content-end align-items-center gap-3">
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">about</a></li>
+                            <li><a href="#">Service</a></li>
+                            <li><a href="#">blog</a></li>
+                            <li><a href="#">galery</a></li>
+                            <li><a href="#">contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <ul>
+                            <li class="ms-3">
+                                <div id="add-btn" class="light_theme hand"><span
+                                        class="line-md--sunny-filled-loop-to-moon-filled-loop-transition"></span></div>
+                                <div id="remove-btn" class="dark_theme hand"><span class="meteocons--sunset-fill"></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="toggle_btn">
+                            <li id="toggle_menu" class="hand"><span class="line-md--close-to-menu-alt-transition"></span>
+                            </li>
+                            <li id="remove_menu" class="hand"><span class="line-md--close-small"></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+     <div class="slider">
+        <section class="hero">
+            <div class="container-fluid">
+                <div class="hero_dontent d-flex align-items-center gap-3">
+                    <div class="banner_text">
+                        <p class="welcome_text">Welcome! <span class="high_light">"vishnudev Chatters"</span></p>
+                        <h2 class="animatedText">  </h2>
+                        <p>At Vishnu Catters, we believe that every special occasion deserves extraordinary
+                            cuisine. Our team of expert chefs crafts gourmet dishes.....</p>
+                        <button class="button mt-3">
+                            <div class="d-flex align-items-center h-100 gap-1">
+                                <span class="line-md--phone-call-loop"></span>
+                                <span class="">contact us</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="container-fluid">
+                <div class="hero_dontent d-flex align-items-center gap-3">
+                    <div class="banner_text">
+                        <p class="welcome_text">Welcome! <span class="high_light">"vishnudev Chatters"</span></p>
+                        <h2 class="animatedText">  </h2>
+                        <p>At Vishnu Catters, we believe that every special occasion deserves extraordinary
+                            cuisine. Our team of expert chefs crafts gourmet dishes.....</p>
+                        <button class="button mt-3">
+                            <div class="d-flex align-items-center h-100 gap-1">
+                                <span class="line-md--phone-call-loop"></span>
+                                <span class="">contact us</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="container-fluid">
+                <div class="hero_dontent d-flex align-items-center gap-3">
+                    <div class="banner_text">
+                        <p class="welcome_text">Welcome! <span class="high_light">"vishnudev Chatters"</span></p>
+                        <h2 class="animatedText">  </h2>
+                        <p>At Vishnu Catters, we believe that every special occasion deserves extraordinary
+                            cuisine. Our team of expert chefs crafts gourmet dishes.....</p>
+                        <button class="button mt-3">
+                            <div class="d-flex align-items-center h-100 gap-1">
+                                <span class="line-md--phone-call-loop"></span>
+                                <span class="">contact us</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>  -->
+
+    <!-- about section start -->
+
+    <div id="theme" class="landing_page w-100 ">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button v-for="(cor, index) in corousal" :key="index" type="button"
+                    :data-bs-target="'#carouselExampleIndicators'" :data-bs-slide-to="index"
+                    :class="{ active: index === 0 }" :aria-current="index === 0 ? 'true' : undefined"
+                    :aria-label="'Slide ' + (index + 1)"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item" v-for="(cor, index) in corousal" :key="index"
+                    :class="['carousel-item', { active: index === 0 }]">
+                    <img :src="cor.image" alt="">
+                    <div class="container">
+                        <div class="banner-section d-block w-100 position-relative">
+                            <div class="hero-section position-absolute">
+                                <div class="banner-content">
+                                    <h2 class="mb-3">
+                                        <b>{{ cor.title.split(" ")[0]+" " }}</b>
+                                        <span class="text-secondary">
+                                            <b>{{ cor.title.split(" ").slice(1).join(" ") }}</b>
+                                        </span>
+                                    </h2>
+                                    <p class="text-gray text16 mb-3">{{ cor?.description }}</p>
+                                    <!-- <div class="d-flex align-items-center gap-3">
+                                        <button class="green-button">Get Started</button>
+                                        <div class="contact-cpf d-flex align-items-center">
+                                            <div class="icon-contact me-2">
+                                                <i class="bi bi-telephone fs-5"></i>
+                                            </div>
+                                            <div>
+                                                <p>Call Anytime</p>
+                                                <span>630-281-6500</span>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="pattern-img">
+                                        <img src="../../../../public/assets/images/pattern.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden text-gray">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden text-gray">Next</span>
+            </button>
+        </div>
+    
+    
+        <!-- About Us -->
+        <div class="about-cpf m-block">
+            <div class="container gap-5 align-items-center d-flex">
+                <div class="about-img position-relative">
+                    <img src="../../../public/assets/images/about cpf.svg" width="450" alt="">
+                    <div class="year-card rounded">
+                        <div class="d-flex rounded p-2 align-items-center justify-content-center w-100"
+                            style="border:1px dashed white;">
+                            <h3 class="ms-3 mb-0"><b class="text-white fs-30">20</b></h3>
+                            <p class="text14 ms-3">Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <h6 class="text-secondary sm-mt-5 sm-mb-5 mb-1">ABOUT CLAIMS PROCESSING FACILITY</h6>
+                    <h2 class="mb-3">We provide the best
+                        asbestos claim processing
+                        services</h2>
+                    <p class="text-gray mb-5" v-html="extractDescription(aboutUsData?.description,70)">
+                    </p>
+                    <a href="/about-us"><button class="green-button">Discover More</button></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- about-us-end -->
+        <!-- why-choose-us -->
+        <div class="why-choose w-100 position-relative">
+            <div class="after-before w-100 h-100">
+                <div class="container h-100">
+                    <div class="row h-100">
+                        <div class="col-6">
+                            <div class="left-design position-relative z-index-2 py-2 h-100">
+                                <div class="design-left-img h-100 p-0 main-flex">
+                                    <img src="../../../public/assets/images/why-choose.svg" alt="">
+                                    <div class="faded-shadow">
+                                        <i class="bi bi-play-fill position-absolute"></i>
+                                    </div>
+                                </div>
+                    
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="right-design position-relative z-index-2 h-100">
+                                <!-- <img class="position-absolute bottom-0 right-0" src="../../../public/assets/images/pattern-3.png" alt=""> -->
+                                <div class="design-right-contant h-100">
+                                    <div class="design-right-text">
+                                        <h6 class="text-secondary mb-3">WHY CHOOSE US</h6>
+                                        <h2 class="mb-3 text-white">Few reasons for people
+                                            choosing CPF</h2>
+                                        <p class="text14 text-gray mb-4 w-75">Claims Processing Facility, Inc. (CPF) provides asbestos claim
+                                            processing
+                                            services to
+                                            Bondex Asbestos
+                                            Personal Injury Trust.</p>
+                                    </div>
+                    
+                                    <div class="boxes ">
+                                        <div class="d-flex gap-2 mb-3">
+                                            <div class="box">
+                                                <img src="../../../public/assets/images/Frame.svg" alt="">
+                                                <h6 class="mt-2">Fast & easy process</h6>
+                                            </div>
+                                            <div class="box">
+                                                <img src="../../../public/assets/images/Frame (1).svg" alt="">
+                                                <h6 class="mt-2">Easy documentation</h6>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-2 mb-2">
+                                            <div class="box mb-3">
+                                                <img src="../../../public/assets/images/Frame (2).svg" alt="">
+                                                <h6 class="mt-2">Control over claims</h6>
+                                            </div>
+                                            <div class="box mb-3">
+                                                <img src="../../../public/assets/images/Frame (3).svg" alt="">
+                                                <h6 class="mt-2">Save your money</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+      
+       
+        <!-- why-choose us end -->
+        <!-- news-->
+        <div class="news-feed p-block" v-if="news.length>0">
+            <div class="container">
+                <div class="heading text-center mb-5">
+                    <p class="text-dark">RECENT NEWS FEED</p>
+                    <h1 class="text-secondary">Latest News</h1>
+                </div>
+                <div class="cards row">
+                    <div class="col-lg-4" v-for="(item,index) in news.slice(0, 3)">
+                        <div class="card  border-0">
+                            <img class="card-img-top"
+                                :src="item.image ? item.image:'../../../public/assets/images/news1.svg'"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p class="text-teal-green mb-3"><i class="bi bi-calendar me-2"></i><a
+                                        class="text-teal-green" href="#">{{moment(item.publishedDate).format('lll')}}</a>
+                                </p>
+                                <h6 class="mb-3 text-ellipsis max-width-400">{{item.title}}</h6>
+                                <p class="card-text mb-3 text-gray news-feed-text" v-html="extractDescription(item.description,30)"></p>
+                                <!-- <div class="p-3 ps-0"> -->
+                                <a class="text-teal-green text14" :href="'/news/' + item.id">Read More</a>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+                <div v-if="news.length>3" class="text-center mt-2">
+                    <a href="/all-news" class="green-button p-3">View More</a>
+                </div>
+            </div>
+        </div>
+        <!-- news end -->
+    
+        <!-- general quetions -->
+        <div class="query_general">
+            <div class="general-query mt-8">
+                <div class="container">
+                    <div class="faq-contant d-flex">
+                        <div class="faq-contant-img">
+                            <img src="../../../public/assets/images/Mask group.svg" alt="">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="general-text m-block">
+                                <h6 class="text-secondary mb-3">WHY CHOOSE US</h6>
+                                <h2 class="mb-3">Our General Frequently
+                                    Asked Questions</h2>
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item bg-green-fade" v-for="(faq,index) in faqs.slice(0,5)">
+                                        <h2 class="accordion-header" :id="'flush-heading'+index">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" :data-bs-target="'#flush-collapse'+index"
+                                                aria-expanded="false" :aria-controls="'flush-collapse'+index">
+                                                {{faq.question}}
+                                            </button>
+                                        </h2>
+                                        <div :id="'flush-collapse'+index" class="accordion-collapse collapse bg-green-fade"
+                                            :aria-labelledby="'flush-heading'+index"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                {{faq.answer}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button v-if="faqs.length>5" @click="router.push('/faqs')" class="green-button mt-6">View
+                                    More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="img-faq-1">
+                    <img src="../../../public/assets/images/wave-pattern-1.svg" class="faq-img-1" alt="">
+                </div>
+                <div class="img-faq-2">
+                    <img src="../../../public/assets/images/wave-pattern-2.svg" class="faq-img-2" alt="">
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Initialize Slick -->
+<!-- javascript for all website  -->
+<script src="script/script.js"></script>
+</body>
+
+</html>

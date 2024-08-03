@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick Slider Example</title>
+    <!-- Slick CSS -->
+    
+    <!-- Your CSS -->
+    <style>
+        .slider {
+            width: 80%;
+            margin: 100px auto;
+        }
+        .slick-slide img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider">
+        <div><img src="images/slide-2.webp" alt="Image 1"></div>
+        <div><img src="images/slide-1.webp" alt="Image 2"></div>
+        <div><img src="images/slide-3.webp" alt="Image 3"></div>
+        <!-- Add more slides as needed -->
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Initialize Slick -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+    </script>
+</body>
+</html>
